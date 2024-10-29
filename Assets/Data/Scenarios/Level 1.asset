@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e614384f7f162afbe960caa500539f27, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  PresenterName: Level 1
+  SceneName: Level_1
+  Lives: 5
+  Gold: 20
+  Waves:
+  - {fileID: 11400000, guid: 20d41f921bad1d9cd9ec10b743185b5e, type: 2}
+  - {fileID: 11400000, guid: 6e47a3e1210d7cf4f9b5b0dcaa840883, type: 2}
+  Towers: []
