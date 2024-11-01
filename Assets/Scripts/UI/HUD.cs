@@ -18,7 +18,6 @@ public class HUD : MonoBehaviour
 
     public GameObject PanelModal;
     public GameObject ExitToMenuButton;
-    public GameObject StartButton;
     public TextMeshProUGUI ModalText;
     
     //TODO: bug - kui kaua oodata Level 1 vajutamisega main screenil siis
@@ -32,7 +31,7 @@ public class HUD : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
+        PanelModal.SetActive(false);
         Events.OnChangeLives += OnChangeLives;
         Events.OnSetGold += OnSetGold;
 
@@ -63,31 +62,7 @@ public class HUD : MonoBehaviour
     {
         LivesText.text = "Lives: " + newLives;
     }
-
-    void Start()
-    {
-        // ModalText.text = "Welcome to TowerDefence 2000";
-        // ModalText.fontSize = 22.0f;
-        // PanelModal.SetActive(true);
-        // ExitToMenuButton.SetActive(false);
-        // Time.timeScale = 0;
-        StartButton.SetActive(false);
-        PanelModal.SetActive(false);
-    }
-
-    private void StartGame()
-    {
-        // Time.timeScale = 1;
-        StartButton.SetActive(false);
-        PanelModal.SetActive(false);
-        
-    }
-
-    public void StartPressed()
-    {
-        StartGame();
-    }
-
+    
     public void ExitToMenuPressed()
     {
         SceneManager.LoadScene(0);
@@ -111,11 +86,5 @@ public class HUD : MonoBehaviour
             ModalText.text = "You lost";
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

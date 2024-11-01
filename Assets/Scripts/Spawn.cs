@@ -11,6 +11,21 @@ public class Spawn : MonoBehaviour
     private Waypoint waypoint;
     
     //TODO: Ootab Eventsidest kui wave start vms juhtub ja ss instantiatib!
+    private void Awake()
+    {
+        Events.OnScenarioLoaded += ScenarioLoaded;
+
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnScenarioLoaded -= ScenarioLoaded;
+    }
+
+    private void ScenarioLoaded(ScenarioData scenario)
+    {
+        ScenarioData = scenario;
+    }
 
     private void Start()
     {

@@ -14,6 +14,9 @@ public class ScenarioController : MonoBehaviour
     
     public int Lives = 10;
     public int Gold = 30;
+    private ScenarioData ScenarioData;
+    private bool levelRunning;
+
     private void Awake()
     {
         Events.OnChangeLives += OnChangeLives; //Lisame kuulajaks
@@ -25,9 +28,13 @@ public class ScenarioController : MonoBehaviour
         Events.OnScenarioLoaded += ScenarioLoaded;
     }
 
-    private void ScenarioLoaded(ScenarioData obj)
+    private void ScenarioLoaded(ScenarioData scenario)
     {
-        print(obj);
+        // StartLevel
+        levelRunning = true;        
+        ScenarioData = scenario;
+        Events.SetGold(scenario.Gold);
+        Events.ChangeLives(scenario.Lives);
         //elud kullad wave -- get the wame from the event 
         // Events.OnWaveStart(obj.Waves[CurrentWave])
     }
@@ -70,7 +77,6 @@ public class ScenarioController : MonoBehaviour
         Events.OnScenarioLoaded -= ScenarioLoaded;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         Events.ChangeLives(Lives);
@@ -88,6 +94,7 @@ public class ScenarioController : MonoBehaviour
 
     private void Update()
     {
+        // TODO: bug - see ei toota praegu !! Ehk siis voita ei saa hetkel
         if (!GameObject.FindWithTag("Enemy"))
         {
             HUD.Instance.ShowGameOverScreen(true);
