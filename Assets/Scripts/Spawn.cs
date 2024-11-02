@@ -18,7 +18,6 @@ public class Spawn : MonoBehaviour
     //TODO: bug -  kui wave started event tuleb siis isWaveSTarted laheb false-ks miskiparast
     private void Awake()
     {
-    
         Events.OnScenarioLoaded += ScenarioLoaded;
         Events.OnWaveStart += WaveStart;
         print("Awake: Events subscribed.");
@@ -34,10 +33,16 @@ public class Spawn : MonoBehaviour
     private void WaveStart(WaveData data)
     {
         currentWave = data;
-        enemiesLeft = currentWave.NumberOfEnemies;
+        newMethod();
+    }
+
+    private void newMethod()
+    {
         isWaveStarted = true;
+        enemiesLeft = currentWave.NumberOfEnemies;
         print("current " + currentWave.EnemyData);
         print("iswavestarted " + isWaveStarted);
+
     }
 
     private void ScenarioLoaded(ScenarioData data)
@@ -53,10 +58,6 @@ public class Spawn : MonoBehaviour
 
     void Update()
     {
-        if (!isWaveStarted)
-        {
-            return;
-        }
         if (currentWave != null)
         {
             var data = currentWave.EnemyData;

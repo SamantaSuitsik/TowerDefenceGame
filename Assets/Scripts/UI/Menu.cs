@@ -54,7 +54,7 @@ public class Menu : MonoBehaviour
         gameObject.SetActive(level == 0);
         if (SelectedScenario != null)
         {
-            print("scenario action was fired");
+            print("scenario action was fired" + SelectedScenario);
             Events.ScenarioLoaded(SelectedScenario);
         }
 
