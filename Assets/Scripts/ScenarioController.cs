@@ -16,6 +16,7 @@ public class ScenarioController : MonoBehaviour
     public int Gold = 30;
     private ScenarioData ScenarioData;
     private bool levelRunning;
+    private int currentWaveIndex;
 
     private void Awake()
     {
@@ -36,7 +37,8 @@ public class ScenarioController : MonoBehaviour
         Events.SetGold(scenario.Gold);
         Events.ChangeLives(scenario.Lives);
         //elud kullad wave -- get the wame from the event 
-        // Events.OnWaveStart(obj.Waves[CurrentWave])
+        Events.WaveStart(scenario.Waves[currentWaveIndex]);
+        // TODO: suurenda wave indexit kui wave labi on!
     }
 
     private bool OnGetIsLost()

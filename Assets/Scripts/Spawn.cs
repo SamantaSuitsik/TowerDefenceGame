@@ -9,22 +9,40 @@ public class Spawn : MonoBehaviour
     public float SpawnDelay = 0.25f;
     private float nextSpawnTime = 0;
     private Waypoint waypoint;
-    
+    private ScenarioData scenario;
+    private WaveData currentWave;
+    private int enemiesLeft = 0;
+
+    private bool isWaveStarted;
     //TODO: Ootab Eventsidest kui wave start vms juhtub ja ss instantiatib!
+    //TODO: bug -  kui wave started event tuleb siis isWaveSTarted laheb false-ks miskiparast
     private void Awake()
     {
+    
         Events.OnScenarioLoaded += ScenarioLoaded;
+        Events.OnWaveStart += WaveStart;
+        print("Awake: Events subscribed.");
 
     }
 
     private void OnDestroy()
     {
         Events.OnScenarioLoaded -= ScenarioLoaded;
+        Events.OnWaveStart -= WaveStart;
     }
 
-    private void ScenarioLoaded(ScenarioData scenario)
+    private void WaveStart(WaveData data)
     {
-        ScenarioData = scenario;
+        currentWave = data;
+        enemiesLeft = currentWave.NumberOfEnemies;
+        isWaveStarted = true;
+        print("current " + currentWave.EnemyData);
+        print("iswavestarted " + isWaveStarted);
+    }
+
+    private void ScenarioLoaded(ScenarioData data)
+    {
+        scenario = data;
     }
 
     private void Start()
@@ -35,22 +53,43 @@ public class Spawn : MonoBehaviour
 
     void Update()
     {
-        if (nextSpawnTime <= Time.time)
+        if (!isWaveStarted)
         {
+            return;
+        }
+        if (currentWave != null)
+        {
+            var data = currentWave.EnemyData;
+            print("current wave: " + data);
+        }
+        else
+        {
+            print("current wave data is not yet initialized");
+        }
+        
+        print("enemies left" + enemiesLeft);
+        if (nextSpawnTime <= Time.time && enemiesLeft > 0)
+        {
+            print("prefab: " + WayPointFollowerPrefab);
             if (WayPointFollowerPrefab == null)
             {
+                print("enemy prefab is null");
                 return;
             }
-
+            print("spawn is instantiating prefabs");
             var follower = Instantiate(WayPointFollowerPrefab, transform.position, Quaternion.identity);
 
             if (waypoint == null)
             {
+                print("waypoint is null");
+                // siis enam enemyd ei spawni!
                 return;
             }
-    
+            
             follower.Next = waypoint;  // Set the next waypoint for the follower
-            nextSpawnTime += SpawnDelay;
+            nextSpawnTime += currentWave.SpawnCooldown;
+            enemiesLeft--;
+            
         }
     }
 }

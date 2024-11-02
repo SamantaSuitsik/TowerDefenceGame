@@ -51,7 +51,6 @@ public class Menu : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        print("olen on level was loaded methodis");
         gameObject.SetActive(level == 0);
         if (SelectedScenario != null)
         {

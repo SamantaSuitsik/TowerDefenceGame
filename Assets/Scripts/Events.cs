@@ -28,6 +28,7 @@ public static class Events
    public static event Action<ScenarioData> OnScenarioLoaded;
    public static void ScenarioLoaded(ScenarioData data) => OnScenarioLoaded?.Invoke(data);
    
-   public static event Action<ScenarioData> OnWaveStart;
+   public static event Action<WaveData> OnWaveStart;
+   public static void WaveStart(WaveData data) => OnWaveStart?.Invoke(data);
 
 }

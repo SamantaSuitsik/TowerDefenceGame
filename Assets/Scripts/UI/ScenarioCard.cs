@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ScenarioCard : MonoBehaviour
 {
-    private ScenarioData ScenarioData;
+    public ScenarioData ScenarioData;
 
     public TextMeshProUGUI Text;
     // Start is called before the first frame update

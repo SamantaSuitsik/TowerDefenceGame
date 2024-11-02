@@ -4,9 +4,22 @@ public class Health : MonoBehaviour
 {
     public int lives = 3;
     public int goldWorth = 10;
-    private void Update()
+    
+    private void Awake()
     {
-        
+        Events.OnWaveStart += WaveStart;
+
+    }
+    
+
+    private void OnDestroy()
+    {
+        Events.OnWaveStart -= WaveStart;
+    }
+
+    private void WaveStart(WaveData wave)
+    {
+        lives = wave.EnemyData.Health;
     }
 
     public void ReduceHealth(int damage)

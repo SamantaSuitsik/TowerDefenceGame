@@ -11,10 +11,19 @@ public class Tower : MonoBehaviour
     public Projectile Projectile;
     public float Cooldown = 0.5f;
     private float nextSpawnTime = 0;
+
+    private ScenarioData scenario;
     // private bool isVisible;
-    void Start()
+
+    private void Awake()
     {
-        
+        Events.OnScenarioLoaded += ScenarioLoaded;
+
+    }
+
+    private void ScenarioLoaded(ScenarioData data)
+    {
+        scenario = data;
     }
 
     private Health GetTarget()

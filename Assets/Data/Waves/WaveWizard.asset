@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WaveWizard
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: fda0ab53e48c283c7adaea5113ca415e, type: 2}
-  NumberOfEnemies: 8
+  NumberOfEnemies: 3
   SpawnCooldown: 0.5
