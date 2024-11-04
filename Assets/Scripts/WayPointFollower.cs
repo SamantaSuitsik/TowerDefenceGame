@@ -11,9 +11,12 @@ public class WayPointFollower : MonoBehaviour
     private WaveData wave;
     private int damageInWave;
 
+    private SpriteRenderer spriteRenderer;
+
     private void Awake()
     {
         Events.OnWaveStart += WaveStart;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
     
@@ -35,6 +38,10 @@ public class WayPointFollower : MonoBehaviour
         wave = data;
         Speed = wave.EnemyData.MovementSpeed;
         damageInWave = wave.EnemyData.Damage;
+        if (spriteRenderer != null && wave.EnemyData.Sprite != null) // Check for sprite
+        {
+            spriteRenderer.sprite = wave.EnemyData.Sprite; // Set the sprite
+        }
     }
 
 

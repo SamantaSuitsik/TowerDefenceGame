@@ -8,4 +8,5 @@ public class EnemyData : ScriptableObject
     public int Health = 3;
     public int Damage = 1;
     public float MovementSpeed = 5f;
+    public Sprite Sprite;
 }
