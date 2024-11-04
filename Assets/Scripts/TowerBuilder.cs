@@ -6,6 +6,7 @@ public class TowerBuilder : MonoBehaviour
     public Color AllowColor;
     public Color DenyColor;
     private TowerData currentTowerData;
+    private TowerData data;
     private void Awake()
     {
         Events.OnTowerSelected += TowerSelected; // kuulab
@@ -21,9 +22,16 @@ public class TowerBuilder : MonoBehaviour
 
     private void TowerSelected(TowerData data)
     {
-        currentTowerData = data;
-        print("data : "  + currentTowerData);
+        this.data = data;
+        print("Price : "  + data.Cost + "How much I Have money: " + Events.GetGold());
         gameObject.SetActive(true);
+        SpriteRenderer[] renderers = GetComponentsInChildren<SpriteRenderer>();
+        SpriteRenderer[] TowerRenderers = data.TowerPrefab.GetComponentsInChildren<SpriteRenderer>();
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].sprite = TowerRenderers[i].sprite;
+        }
     }
 
     // Update is called once per frame
@@ -86,15 +94,15 @@ public class TowerBuilder : MonoBehaviour
         if (!free || !HasEnoughGold())
             return;
 
-        GameObject.Instantiate<Tower>(currentTowerData.TowerPrefab,pos,Quaternion.identity,null);
-        Events.SetGold(Events.GetGold() - currentTowerData.Cost);
+        GameObject.Instantiate<Tower>(data.TowerPrefab,pos,Quaternion.identity,null);
+        Events.SetGold(Events.GetGold() - data.Cost);
         gameObject.SetActive(false);
     }
 
     private bool HasEnoughGold()
     {
         int currentGold = Events.GetGold();
-        return currentGold >= currentTowerData.Cost;
+        return currentGold >= data.Cost;
     }
         
 }

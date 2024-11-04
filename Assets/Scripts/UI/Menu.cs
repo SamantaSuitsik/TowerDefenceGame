@@ -29,7 +29,7 @@ public class Menu : MonoBehaviour
 
     public void Awake()
     {
-        Events.OnScenarioLoaded += ScenarioSelected;
+      
         
         if (Instance != null)
         {
@@ -42,11 +42,17 @@ public class Menu : MonoBehaviour
             Events.OnScenarioSelected += ScenarioSelected;
         }
     }
+    public void OnDestroy()
+    {
+        Events.OnScenarioSelected -= ScenarioSelected;
+        
+    }
 
     public void ScenarioSelected(ScenarioData scenario)
     {
         SelectedScenario = scenario;
         SceneManager.LoadScene(scenario.SceneName);
+        
     }
 
     private void OnLevelWasLoaded(int level)

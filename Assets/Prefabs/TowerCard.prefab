@@ -391,7 +391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8968249937051740471}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 979616358832746934}
+        m_TargetAssemblyTypeName: TowerCard, Assembly-CSharp
+        m_MethodName: Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &979616358832746934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +419,7 @@ MonoBehaviour:
   CostText: {fileID: 1576886006570614463}
   ShortCutText: {fileID: 7403924611377249377}
   IconImage: {fileID: 5343518146247660400}
+  TowerData: {fileID: 0}
 --- !u!1 &9200954856059863738
 GameObject:
   m_ObjectHideFlags: 0

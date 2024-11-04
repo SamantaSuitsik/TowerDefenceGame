@@ -11,9 +11,9 @@ public class ScenarioCard : MonoBehaviour
 
     public TextMeshProUGUI Text;
     // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
-        Text.text = ScenarioData.PresenterName;
         GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
@@ -31,7 +31,14 @@ public class ScenarioCard : MonoBehaviour
 
     public void OnClick()
     {
-        Events.ScenarioSelected(ScenarioData);
+        if (ScenarioData != null)
+        {
+            Events.ScenarioSelected(ScenarioData);
+        }
+        else
+        {
+            Debug.LogWarning("ScenarioData is null. Cannot select scenario.");
+        }
     }
 }
 

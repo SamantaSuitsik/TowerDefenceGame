@@ -20,7 +20,6 @@ public class Spawn : MonoBehaviour
     {
         Events.OnScenarioLoaded += ScenarioLoaded;
         Events.OnWaveStart += WaveStart;
-        print("Awake: Events subscribed.");
 
     }
 
@@ -61,14 +60,14 @@ public class Spawn : MonoBehaviour
         if (currentWave != null)
         {
             var data = currentWave.EnemyData;
-            print("current wave: " + data);
+           // print("current wave: " + data);
         }
         else
         {
             print("current wave data is not yet initialized");
         }
         
-        print("enemies left" + enemiesLeft);
+        //print("enemies left" + enemiesLeft);
         if (nextSpawnTime <= Time.time && enemiesLeft > 0)
         {
             print("prefab: " + WayPointFollowerPrefab);

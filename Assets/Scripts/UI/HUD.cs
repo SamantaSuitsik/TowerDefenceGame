@@ -33,27 +33,44 @@ public class HUD : MonoBehaviour
         Instance = this;
         PanelModal.SetActive(false);
         Events.OnChangeLives += OnChangeLives;
-        Events.OnSetGold += OnSetGold;
+        Events.OnSetGold += SetGold;
 
         Events.OnScenarioLoaded += ScenarioLoaded;
+        
+    }
+    private void Start()
+    {
         
     }
 
     private void ScenarioLoaded(ScenarioData obj)
     {
+
+
+        foreach (Transform child in Panel.transform)
+        {
+            if (child != null)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        
+        // ScenarioData järgi lisab towerid
         foreach (var tower in obj.Towers)
         {
             var card = Instantiate<TowerCard>(TowerCardPrefab, Panel.transform);
+            card.SetData(tower);
         }
     }
 
     private void OnDestroy()
     {
         Events.OnChangeLives -= OnChangeLives;
-        Events.OnSetGold -= OnSetGold;
+        Events.OnSetGold -= SetGold;
+        Events.OnScenarioLoaded -= ScenarioLoaded;
     }
 
-    private void OnSetGold(int newGold)
+    private void SetGold(int newGold)
     {
         GoldText.text = "Gold: " + newGold;
     }

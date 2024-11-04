@@ -20,11 +20,11 @@ public class ScenarioController : MonoBehaviour
 
     private void Awake()
     {
-        Events.OnChangeLives += OnChangeLives; //Lisame kuulajaks
-        Events.OnGetLives += OnGetLives;
+        Events.OnChangeLives += ChangeLives; //Lisame kuulajaks
+        Events.OnGetLives += GetLives;
 
-        Events.OnSetGold += OnSetGold;
-        Events.OnGetGold += OnGetGold;
+        Events.OnSetGold += SetGold;
+        Events.OnGetGold += GetGold;
 
         Events.OnScenarioLoaded += ScenarioLoaded;
     }
@@ -48,23 +48,23 @@ public class ScenarioController : MonoBehaviour
         return false;
     }
 
-    private int OnGetGold()
+    private int GetGold()
     {
         return Gold;
     }
 
-    private void OnSetGold(int newGold)
+    private void SetGold(int newGold)
     {
         Gold = newGold;
     }
 
-    private int OnGetLives()
+    private int GetLives()
     {
         // Kui keegi tahab elusid siis anname talle need siit
         return Lives;
     }
 
-    private void OnChangeLives(int newLives)
+    private void ChangeLives(int newLives)
     {
         // Kui keegi muudab elusid siis paneme elud selle muutuse järgi
         Lives = newLives;
@@ -73,8 +73,8 @@ public class ScenarioController : MonoBehaviour
 
     private void OnDestroy()
     {
-        Events.OnChangeLives -= OnChangeLives;
-        Events.OnGetLives -= OnGetLives;
+        Events.OnChangeLives -= ChangeLives;
+        Events.OnGetLives -= GetLives;
 
         Events.OnScenarioLoaded -= ScenarioLoaded;
     }

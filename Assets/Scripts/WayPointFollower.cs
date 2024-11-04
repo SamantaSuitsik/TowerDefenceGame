@@ -9,6 +9,7 @@ public class WayPointFollower : MonoBehaviour
     public Waypoint Next;
     public float Speed = 1f;
     private WaveData wave;
+    private int damageInWave;
 
     private void Awake()
     {
@@ -48,7 +49,12 @@ public class WayPointFollower : MonoBehaviour
 
     void ReachEnd()
     {
-        Events.ChangeLives(Events.GetLives() - wave.EnemyData.Damage);
+        if (wave != null && wave.EnemyData != null)
+        {
+            damageInWave = wave.EnemyData.Damage;
+        }
+        print(damageInWave);
+        Events.ChangeLives(Events.GetLives() - damageInWave);
         Destroy(gameObject);
     }
 }

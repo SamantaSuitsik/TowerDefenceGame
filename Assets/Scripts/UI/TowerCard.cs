@@ -14,42 +14,49 @@ public class TowerCard : MonoBehaviour
 
     public Image IconImage;
 
-    public TowerData TowerData;
     private Button button;
+
+    private TowerData data;
+
+    private KeyCode shortcutKey;
 
     void Awake()
     {
-        button = GetComponent<Button>();
-        if (button != null)
-        {
-            button.onClick.AddListener(Pressed);
-        }
 
-        if (TowerData != null)
-        {
-            CostText.text = TowerData.Cost.ToString() + "$";
-            ShortCutText.text = TowerData.ShortCut;
-            IconImage.sprite = TowerData.Icon;
-        }
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
+    }
+    public void SetData(TowerData data)
+    {
+        this.data = data;
+        CostText.text = data.Cost.ToString() + "€";
+        ShortCutText.text = data.ShortCut.ToString();
+        IconImage.sprite = data.Icon;
+        if (System.Enum.TryParse(data.ShortCut, true, out shortcutKey))
+        {
+            Debug.Log("Shortcut set to: " + shortcutKey);
+        }
+        else
+        {
+            Debug.LogError("Invalid Shortcut: " + data.ShortCut);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(TowerData.ShortCut.ToLower()))
+        if (Input.GetKeyDown(shortcutKey))
         {
-            Events.TowerSelected(TowerData);
+            Pressed();
         }
     }
 
     public void Pressed()
     {
-        Events.TowerSelected(TowerData);
+        Events.TowerSelected(data);
     }
 
 }
