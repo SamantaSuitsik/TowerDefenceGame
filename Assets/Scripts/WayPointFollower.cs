@@ -30,6 +30,13 @@ public class WayPointFollower : MonoBehaviour
 
     }
 
+    public void InitializeWaveData(WaveData data)
+    {
+        wave = data;
+        Speed = wave.EnemyData.MovementSpeed;
+        damageInWave = wave.EnemyData.Damage;
+    }
+
 
     void Update()
     {
@@ -51,10 +58,8 @@ public class WayPointFollower : MonoBehaviour
     {
         if (wave != null && wave.EnemyData != null)
         {
-            damageInWave = wave.EnemyData.Damage;
+            Events.ChangeLives(Events.GetLives() - damageInWave);
         }
-        print(damageInWave);
-        Events.ChangeLives(Events.GetLives() - damageInWave);
         Destroy(gameObject);
     }
 }

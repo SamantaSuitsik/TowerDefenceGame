@@ -86,8 +86,11 @@ public class Spawn : MonoBehaviour
                 return;
             }
             
+
             follower.Next = waypoint;  // Set the next waypoint for the follower
+            follower.InitializeWaveData(currentWave);
             nextSpawnTime += currentWave.SpawnCooldown;
+            
             enemiesLeft--;
             
         }

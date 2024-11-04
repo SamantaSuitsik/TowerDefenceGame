@@ -49,7 +49,7 @@ public class Tower : MonoBehaviour
 
         if (!target.IsDestroyed() && nextSpawnTime <= Time.time)
         {
-            nextSpawnTime += Cooldown;
+            nextSpawnTime = Time.time + Cooldown;
             Fire(target);
         }
 
