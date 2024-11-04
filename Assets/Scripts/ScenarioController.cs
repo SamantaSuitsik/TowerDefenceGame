@@ -22,11 +22,10 @@ public class ScenarioController : MonoBehaviour
     {
         Events.OnChangeLives += ChangeLives; //Lisame kuulajaks
         Events.OnGetLives += GetLives;
-
         Events.OnSetGold += SetGold;
         Events.OnGetGold += GetGold;
-
         Events.OnScenarioLoaded += ScenarioLoaded;
+        Events.OnWaveCompleted += WaveCompleted;
     }
 
     private void ScenarioLoaded(ScenarioData scenario)
@@ -75,8 +74,31 @@ public class ScenarioController : MonoBehaviour
     {
         Events.OnChangeLives -= ChangeLives;
         Events.OnGetLives -= GetLives;
-
+        Events.OnSetGold -= SetGold;
+        Events.OnGetGold -= GetGold;
         Events.OnScenarioLoaded -= ScenarioLoaded;
+        Events.OnWaveCompleted -= WaveCompleted;
+    }
+
+    private void WaveCompleted(bool isCompleted)
+    {
+        if (isCompleted)
+        {
+            print("waveCompleted !");
+            if (ScenarioData.Waves.Length - 1 > currentWaveIndex)
+            {
+                // gets same wave data
+                currentWaveIndex = currentWaveIndex + 1;
+                print("new wave index: " + currentWaveIndex);
+                print("start new wave: " + ScenarioData.Waves[currentWaveIndex]);
+                Events.WaveStart(ScenarioData.Waves[currentWaveIndex]);
+            }
+            else
+            {
+                print("game end");
+                HUD.Instance.ShowGameOverScreen(true);
+            }
+        }
     }
 
     void Start()
@@ -95,12 +117,8 @@ public class ScenarioController : MonoBehaviour
     }
 
     private void Update()
-    {
-        // TODO: bug - see ei toota praegu !! Ehk siis voita ei saa hetkel
-        if (!GameObject.FindWithTag("Enemy"))
-        {
-            HUD.Instance.ShowGameOverScreen(true);
-        }
+    {   
+       
     }
 
     public void EndScenario()

@@ -91,17 +91,20 @@ public class HUD : MonoBehaviour
 
     public void ShowGameOverScreen(bool isWon)
     {
-        PanelModal.SetActive(true);
-        ExitToMenuButton.SetActive(true);
-        // ExitToMenuButton.GetComponent<Text>().text = "Play again";
-        if (isWon)
-        {
-            ModalText.text = "You won";
-        }
-        else
-        {
-            ModalText.text = "You lost";
-        }
-
+        // PanelModal.SetActive(true);
+        // ExitToMenuButton.SetActive(true);
+        // // ExitToMenuButton.GetComponent<Text>().text = "Play again";
+        // if (isWon)
+        // {
+        //     ModalText.text = "You won";
+        // }
+        // else
+        // {
+        //     ModalText.text = "You lost";
+        // }
+        // TODO: lihtsam on vist uut scenei kasutada võiduks ja kaotamiseks?
+        // sest mul on siuke tunne et midagi laheb katki kui seda mitte teha
+        // aeg laheb edasi jms
+        SceneManager.LoadScene(3);
     }
 }

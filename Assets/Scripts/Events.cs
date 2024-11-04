@@ -30,5 +30,9 @@ public static class Events
    
    public static event Action<WaveData> OnWaveStart;
    public static void WaveStart(WaveData data) => OnWaveStart?.Invoke(data);
+   
+   
+   public static event Action<bool> OnWaveCompleted;
+   public static void WaveCompleted(bool data) => OnWaveCompleted?.Invoke(data);
 
 }

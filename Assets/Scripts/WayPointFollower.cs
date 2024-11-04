@@ -15,26 +15,13 @@ public class WayPointFollower : MonoBehaviour
 
     private void Awake()
     {
-        Events.OnWaveStart += WaveStart;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-    }
-    
-
-    private void OnDestroy()
-    {
-        Events.OnWaveStart -= WaveStart;
-    }
-
-    private void WaveStart(WaveData data)
-    {
-        wave = data;
-        Speed = wave.EnemyData.MovementSpeed;
 
     }
 
     public void InitializeWaveData(WaveData data)
     {
+        print("in initializeWaveData " + data);
         wave = data;
         Speed = wave.EnemyData.MovementSpeed;
         damageInWave = wave.EnemyData.Damage;

@@ -2,32 +2,33 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int lives = 3;
-    public int goldWorth = 10;
+    public int Lives;
+    public int GoldWorth;
     
+    //TODO: awake kutsutakse valja aga wavestart event ei jõua siia
+    // ja meetod ei käivitu
     private void Awake()
     {
         Events.OnWaveStart += WaveStart;
 
     }
-    
 
     private void OnDestroy()
     {
         Events.OnWaveStart -= WaveStart;
     }
 
-    private void WaveStart(WaveData wave)
+    private void WaveStart(WaveData data)
     {
-        lives = wave.EnemyData.Health;
+        print("health wave data: " + data);
     }
 
     public void ReduceHealth(int damage)
     {
-        lives -= damage;
-        if (lives <= 0)
+        Lives -= damage;
+        if (Lives <= 0)
         {
-            Events.SetGold(Events.GetGold() + goldWorth);
+            Events.SetGold(Events.GetGold() + GoldWorth);
             Destroy(gameObject);
         }
     }

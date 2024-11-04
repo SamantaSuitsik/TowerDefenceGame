@@ -17,7 +17,7 @@ MonoBehaviour:
   Lives: 5
   Gold: 20
   Waves:
-  - {fileID: 11400000, guid: 20d41f921bad1d9cd9ec10b743185b5e, type: 2}
   - {fileID: 11400000, guid: 6e47a3e1210d7cf4f9b5b0dcaa840883, type: 2}
+  - {fileID: 11400000, guid: 20d41f921bad1d9cd9ec10b743185b5e, type: 2}
   Towers:
   - {fileID: 11400000, guid: bcb16a9d5d48b38a7ba95a109a9bf23d, type: 2}

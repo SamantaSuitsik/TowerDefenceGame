@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9045fce92ca6691a9a93e49275c4740, type: 3}
   m_Name: FastEnemy
   m_EditorClassIdentifier: 
-  Health: 2
+  Health: 1
   Damage: 1
-  MovementSpeed: 7
+  MovementSpeed: 5
+  Sprite: {fileID: 167989832, guid: b33eaba2a128f6edba1c702a386b4a36, type: 3}

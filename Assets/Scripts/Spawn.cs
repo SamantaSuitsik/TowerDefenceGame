@@ -32,16 +32,8 @@ public class Spawn : MonoBehaviour
     private void WaveStart(WaveData data)
     {
         currentWave = data;
-        newMethod();
-    }
-
-    private void newMethod()
-    {
         isWaveStarted = true;
         enemiesLeft = currentWave.NumberOfEnemies;
-        print("current " + currentWave.EnemyData);
-        print("iswavestarted " + isWaveStarted);
-
     }
 
     private void ScenarioLoaded(ScenarioData data)
@@ -67,7 +59,6 @@ public class Spawn : MonoBehaviour
             print("current wave data is not yet initialized");
         }
         
-        //print("enemies left" + enemiesLeft);
         if (nextSpawnTime <= Time.time && enemiesLeft > 0)
         {
             print("prefab: " + WayPointFollowerPrefab);
@@ -86,13 +77,20 @@ public class Spawn : MonoBehaviour
                 return;
             }
             
-
+            print("SPAWNING!");
             follower.Next = waypoint;  // Set the next waypoint for the follower
             follower.InitializeWaveData(currentWave);
             nextSpawnTime += currentWave.SpawnCooldown;
             
             enemiesLeft--;
             
+        }
+
+        else if (!GameObject.FindWithTag("Enemy") && enemiesLeft <= 0)
+        {
+            nextSpawnTime += Time.time;
+            print("WAVE COMPLETED!!");
+            Events.WaveCompleted(true);
         }
     }
 }
