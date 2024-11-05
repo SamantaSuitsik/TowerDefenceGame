@@ -99,6 +99,11 @@ public class HUD : MonoBehaviour
         // TODO: lihtsam on vist uut scenei kasutada võiduks ja kaotamiseks?
         // sest mul on siuke tunne et midagi laheb katki kui seda mitte teha
         // aeg laheb edasi jms
+        if (isWon)
+        {
+            SceneManager.LoadScene(4);
+            return;
+        }
         SceneManager.LoadScene(3);
     }
 }

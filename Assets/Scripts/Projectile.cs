@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int Damage = 1;
+    public int Damage;
 
-    public float Speed = 2f;
+    public float Speed;
     private Health target;
 
     public Health Target

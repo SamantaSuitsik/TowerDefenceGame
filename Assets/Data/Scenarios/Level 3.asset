@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PresenterName: Level 3
   SceneName: Level_2
-  Lives: 100
-  Gold: 20
+  Lives: 20
+  Gold: 25
   Waves:
-  - {fileID: 11400000, guid: 3cc751ed99e378c6dafc2bd7435231f4, type: 2}
   - {fileID: 11400000, guid: dbce621340137aff6bba88d59aac4997, type: 2}
+  - {fileID: 11400000, guid: 6e47a3e1210d7cf4f9b5b0dcaa840883, type: 2}
+  - {fileID: 11400000, guid: 3cc751ed99e378c6dafc2bd7435231f4, type: 2}
   Towers:
   - {fileID: 11400000, guid: bcb16a9d5d48b38a7ba95a109a9bf23d, type: 2}
   - {fileID: 11400000, guid: 516e96a4a360b8f2ab4db8f59eb61883, type: 2}
+  - {fileID: 11400000, guid: bfc28e11250f7a0a487afc15707f2f01, type: 2}
   - {fileID: 11400000, guid: d976f2c2016fd7542bc13dd6d139b4ab, type: 2}

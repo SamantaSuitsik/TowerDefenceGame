@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   Health: 3
-  Damage: 1
-  GoldWorth: 3
+  Damage: 2
+  GoldWorth: 15
   MovementSpeed: 4
   Sprite: {fileID: -718273415, guid: 3d2a414f1f9dee1658bc6225709b8f2b, type: 3}

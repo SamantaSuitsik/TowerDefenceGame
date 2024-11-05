@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +28,7 @@ public class TowerCard : MonoBehaviour
     public void SetData(TowerData data)
     {
         this.data = data;
-        CostText.text = data.Cost.ToString() + "€";
+        CostText.text = data.Cost.ToString() + "ï¿½";
         ShortCutText.text = data.ShortCut.ToString();
         IconImage.sprite = data.Icon;
         if (System.Enum.TryParse(data.ShortCut, true, out shortcutKey))

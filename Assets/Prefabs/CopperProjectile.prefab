@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6993887189129994457}
   - component: {fileID: 7917679507995847918}
   m_Layer: 0
-  m_Name: PoisionProjectile
+  m_Name: CopperProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1733859722, guid: b33eaba2a128f6edba1c702a386b4a36, type: 3}
+  m_Sprite: {fileID: -1619394294, guid: b33eaba2a128f6edba1c702a386b4a36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0729bc83ce9c6bb4192cbd4e0228a538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 4
+  Damage: 1
   Speed: 7
 --- !u!58 &6993887189129994457
 CircleCollider2D:

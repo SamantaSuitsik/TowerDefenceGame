@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65044ec9e7f943aa8865fa55e75cea29, type: 3}
-  m_Name: WizardTower
+  m_Name: Church
   m_EditorClassIdentifier: 
-  Name: Wizard Tower
-  Cost: 35
-  ShortCut: W
-  Icon: {fileID: -1944475527, guid: b33eaba2a128f6edba1c702a386b4a36, type: 3}
-  TowerPrefab: {fileID: 3029685106756796384, guid: 0e0bf38bf45104f458b6cf221cdbee68, type: 3}
+  Name: Church
+  Cost: 40
+  ShortCut: C
+  Icon: {fileID: 2705379, guid: b33eaba2a128f6edba1c702a386b4a36, type: 3}
+  TowerPrefab: {fileID: 3029685106756796384, guid: e5fc3089332f8e3d6bb334d277c7217d, type: 3}

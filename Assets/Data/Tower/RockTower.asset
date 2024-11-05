@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RockTower
   m_EditorClassIdentifier: 
   Name: Rock Tower
-  Cost: 10
+  Cost: 15
   ShortCut: R
   Icon: {fileID: -773875884, guid: b33eaba2a128f6edba1c702a386b4a36, type: 3}
   TowerPrefab: {fileID: 25700365122401021, guid: 994882c7f28bc7444bcf9169427ae885, type: 3}

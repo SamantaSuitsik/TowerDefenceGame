@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -84,18 +79,14 @@ public class ScenarioController : MonoBehaviour
     {
         if (isCompleted)
         {
-            print("waveCompleted !");
             if (ScenarioData.Waves.Length - 1 > currentWaveIndex)
             {
                 // gets same wave data
                 currentWaveIndex = currentWaveIndex + 1;
-                print("new wave index: " + currentWaveIndex);
-                print("start new wave: " + ScenarioData.Waves[currentWaveIndex]);
                 Events.WaveStart(ScenarioData.Waves[currentWaveIndex]);
             }
             else
             {
-                print("game end");
                 HUD.Instance.ShowGameOverScreen(true);
             }
         }
@@ -113,12 +104,6 @@ public class ScenarioController : MonoBehaviour
         if (Lives > 0)
             return;
         HUD.Instance.ShowGameOverScreen(false);
-        // EndScenario();
-    }
-
-    private void Update()
-    {   
-       
     }
 
     public void EndScenario()

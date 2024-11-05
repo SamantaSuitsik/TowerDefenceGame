@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 1973621448, guid: b33eaba2a128f6edba1c702a386b4a36, type: 3}
+  m_Sprite: {fileID: 414787591, guid: 3d2a414f1f9dee1658bc6225709b8f2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1559507438547692623}
   - component: {fileID: 4980936477281294506}
   m_Layer: 0
-  m_Name: WizardTower
+  m_Name: Church
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6.42
+  m_Radius: 2.49
 --- !u!114 &3029685106756796384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets: []
-  Projectile: {fileID: 5984082676512411372, guid: 4d0fa378f46bb984aa00d81c3f092073, type: 3}
-  Cooldown: 1.2
+  Projectile: {fileID: 5984082676512411372, guid: 3b05d23bfe4e964fa8b34b91b471dde4, type: 3}
+  Cooldown: 0.3
 --- !u!50 &1559507438547692623
 Rigidbody2D:
   serializedVersion: 4
@@ -306,7 +306,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: -1944475527, guid: b33eaba2a128f6edba1c702a386b4a36, type: 3}
+  m_Sprite: {fileID: 2705379, guid: b33eaba2a128f6edba1c702a386b4a36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RockMan
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: df511e768b13eba1fb2728210bb803e5, type: 2}
-  NumberOfEnemies: 10
-  SpawnCooldown: 0.7
+  NumberOfEnemies: 6
+  SpawnCooldown: 1

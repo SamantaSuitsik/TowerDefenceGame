@@ -239,7 +239,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.82
+  m_Radius: 3.61
 --- !u!114 &25700365122401021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   Projectile: {fileID: 5984082676512411372, guid: f9319d53a499d92f28657ac438693e77, type: 3}
-  Cooldown: 1
+  Cooldown: 0.75
 --- !u!50 &8828453497972852855
 Rigidbody2D:
   serializedVersion: 4

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StrongEnemyWave
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 2222566ee184d2ff597d338d896a3ed3, type: 2}
-  NumberOfEnemies: 6
-  SpawnCooldown: 0.6
+  NumberOfEnemies: 4
+  SpawnCooldown: 1
