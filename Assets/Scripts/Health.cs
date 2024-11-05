@@ -20,7 +20,19 @@ public class Health : MonoBehaviour
 
     private void WaveStart(WaveData data)
     {
-        print("health wave data: " + data);
+        print("health wave data INFO: " + data);
+
+
+
+
+    }
+
+    public void InitializeEnemyInfo(EnemyData data) {
+
+
+        GoldWorth = data.GoldWorth;
+        Lives = data.Health;
+        print("ENEMY INFO INITIALIZED GOLD" + GoldWorth);
     }
 
     public void ReduceHealth(int damage)

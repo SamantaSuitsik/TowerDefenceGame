@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,13 +13,11 @@ public class Spawn : MonoBehaviour
     private int enemiesLeft = 0;
 
     private bool isWaveStarted;
-    //TODO: Ootab Eventsidest kui wave start vms juhtub ja ss instantiatib!
-    //TODO: bug -  kui wave started event tuleb siis isWaveSTarted laheb false-ks miskiparast
+
     private void Awake()
     {
         Events.OnScenarioLoaded += ScenarioLoaded;
         Events.OnWaveStart += WaveStart;
-
     }
 
     private void OnDestroy()
@@ -34,11 +31,13 @@ public class Spawn : MonoBehaviour
         currentWave = data;
         isWaveStarted = true;
         enemiesLeft = currentWave.NumberOfEnemies;
+        print("Wave started. isWaveStarted set to true. Enemies to spawn: " + enemiesLeft);
     }
 
     private void ScenarioLoaded(ScenarioData data)
     {
         scenario = data;
+        print("Scenario loaded: " + scenario);
     }
 
     private void Start()
@@ -49,53 +48,51 @@ public class Spawn : MonoBehaviour
 
     void Update()
     {
-        if (currentWave != null)
+        if (isWaveStarted && nextSpawnTime <= Time.time && enemiesLeft > 0)
         {
-            var data = currentWave.EnemyData;
-           // print("current wave: " + data);
+            SpawnEnemy();
         }
-        else
+
+        CheckWaveCompletion();
+    }
+
+    private void SpawnEnemy()
+    {
+        if (WayPointFollowerPrefab == null)
         {
-            print("current wave data is not yet initialized");
+            return;
         }
+
+        print("Spawning enemy...");
+        var follower = Instantiate(WayPointFollowerPrefab, transform.position, Quaternion.identity);
+
+        if (waypoint == null)
+        {
+            print("No waypoint assigned. Stopping further spawns.");
+            return;
+        }
+
+        var healthComponent = follower.GetComponent<Health>();
+        if (healthComponent != null && currentWave.EnemyData != null)
+        {
+            healthComponent.InitializeEnemyInfo(currentWave.EnemyData);
+        }
+
+        follower.Next = waypoint;
+        follower.InitializeWaveData(currentWave);
         
-        if (nextSpawnTime <= Time.time && enemiesLeft > 0)
-        {
-            print("prefab: " + WayPointFollowerPrefab);
-            if (WayPointFollowerPrefab == null)
-            {
-                print("enemy prefab is null");
-                return;
-            }
-            print("spawn is instantiating prefabs");
-            var follower = Instantiate(WayPointFollowerPrefab, transform.position, Quaternion.identity);
+        nextSpawnTime = Time.time + currentWave.SpawnCooldown;
+        enemiesLeft--;
+        print("Enemy spawned. Enemies left to spawn: " + enemiesLeft);
+    }
 
-            if (waypoint == null)
-            {
-                print("waypoint is null");
-                // siis enam enemyd ei spawni!
-                return;
-            }
-            
-            print("SPAWNING!");
-            follower.Next = waypoint;  // Set the next waypoint for the follower
-            follower.InitializeWaveData(currentWave);
-            nextSpawnTime += currentWave.SpawnCooldown;
-            
-            enemiesLeft--;
-            
-        }
-
-        else if (!GameObject.FindWithTag("Enemy") && enemiesLeft <= 0)
+    private void CheckWaveCompletion()
+    {
+        if (enemiesLeft <= 0 && !GameObject.FindWithTag("Enemy"))
         {
-            nextSpawnTime += Time.time;
-            print("WAVE COMPLETED!!");
+            isWaveStarted = false;
+            print("Wave completed!");
             Events.WaveCompleted(true);
         }
     }
 }
-
-
-
-
-

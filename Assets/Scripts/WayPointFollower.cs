@@ -10,6 +10,7 @@ public class WayPointFollower : MonoBehaviour
     public float Speed = 1f;
     private WaveData wave;
     private int damageInWave;
+    private int Goldworth;
 
     private SpriteRenderer spriteRenderer;
 
@@ -25,9 +26,9 @@ public class WayPointFollower : MonoBehaviour
         wave = data;
         Speed = wave.EnemyData.MovementSpeed;
         damageInWave = wave.EnemyData.Damage;
-        if (spriteRenderer != null && wave.EnemyData.Sprite != null) // Check for sprite
+        if (spriteRenderer != null && wave.EnemyData.Sprite != null) 
         {
-            spriteRenderer.sprite = wave.EnemyData.Sprite; // Set the sprite
+            spriteRenderer.sprite = wave.EnemyData.Sprite; 
         }
     }
 

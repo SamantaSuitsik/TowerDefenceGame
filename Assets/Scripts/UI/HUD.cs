@@ -20,13 +20,7 @@ public class HUD : MonoBehaviour
     public GameObject ExitToMenuButton;
     public TextMeshProUGUI ModalText;
     
-    //TODO: bug - kui kaua oodata Level 1 vajutamisega main screenil siis
-    // üks tower tulistab korraga hästi palju
-    
-    // praegune flow:
-    // Menu -> Level 1 -> game -> surm -> main menu
-    
-    // TODO: Jargmisena vaja teha rohkem scenarioid ja towereid
+
 
     private void Awake()
     {

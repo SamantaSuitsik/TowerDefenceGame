@@ -47,7 +47,8 @@ public class Projectile : MonoBehaviour
 
         var distance = Vector3.SqrMagnitude(transform.position - Target.transform.position);
         if (distance <= float.Epsilon)
-        {
+        { 
+            
             Target.ReduceHealth(Damage);
             Destroy();
         }
