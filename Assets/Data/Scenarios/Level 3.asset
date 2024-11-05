@@ -22,3 +22,4 @@ MonoBehaviour:
   Towers:
   - {fileID: 11400000, guid: bcb16a9d5d48b38a7ba95a109a9bf23d, type: 2}
   - {fileID: 11400000, guid: 516e96a4a360b8f2ab4db8f59eb61883, type: 2}
+  - {fileID: 11400000, guid: d976f2c2016fd7542bc13dd6d139b4ab, type: 2}

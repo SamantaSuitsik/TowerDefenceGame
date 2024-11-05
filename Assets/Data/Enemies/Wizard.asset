@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9045fce92ca6691a9a93e49275c4740, type: 3}
   m_Name: Wizard
   m_EditorClassIdentifier: 
-  Health: 2
+  Health: 3
   Damage: 1
-  MovementSpeed: 5
+  GoldWorth: 3
+  MovementSpeed: 4
   Sprite: {fileID: -718273415, guid: 3d2a414f1f9dee1658bc6225709b8f2b, type: 3}
